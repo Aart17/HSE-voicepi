@@ -1,0 +1,36 @@
+mode: auto   # auto | online | offline
+
+audio:
+  sample_rate: 16000
+  device_hint: ""     # можно оставить пустым; или часть имени устройства (например "USB Audio")
+  vad_aggressiveness: 2
+  max_utterance_sec: 6
+
+google:
+  enabled: true
+  language_code: "ru-RU"
+  credentials_json: "/home/pi/voicepi/secrets/gcp-sa.json"  # путь на Pi (создадите файл)
+  timeout_sec: 8
+
+vosk:
+  model_dir: "/home/pi/voicepi/models/vosk"
+
+gpio:
+  active_high: true
+
+commands:
+  - id: LIGHT_ON
+    phrases: ["включи свет", "свет включи", "включить свет"]
+    pin: 17
+    action: "on"
+
+  - id: LIGHT_OFF
+    phrases: ["выключи свет", "свет выключи", "выключить свет"]
+    pin: 17
+    action: "off"
+
+  - id: BELL
+    phrases: ["звонок", "позвони", "дай сигнал"]
+    pin: 27
+    action: "pulse"
+    pulse_ms: 400
