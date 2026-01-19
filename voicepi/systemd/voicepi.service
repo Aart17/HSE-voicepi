@@ -1,0 +1,15 @@
+[Unit]
+Description=VoicePi offline/online STT -> GPIO
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/voicepi
+ExecStart=/home/pi/voicepi/.venv/bin/python -m voicepi.main
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
