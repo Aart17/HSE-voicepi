@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Dict
 
 from gpiozero import OutputDevice
-from .commands import Command
+from commands import Command
 
 @dataclass
 class GpioController:

@@ -1,8 +1,8 @@
 mode: auto   # auto | online | offline
 
 audio:
-  sample_rate: 16000
-  device_hint: ""     # можно оставить пустым; или часть имени устройства (например "USB Audio")
+  sample_rate: 48000
+  device_hint: "ME6S"     # можно оставить пустым; или часть имени устройства (например "USB Audio")
   vad_aggressiveness: 2
   max_utterance_sec: 6
 
@@ -13,7 +13,7 @@ google:
   timeout_sec: 8
 
 vosk:
-  model_dir: "/home/pi/voicepi/models/vosk"
+  model_dir: "/home/aart/Yandex.Disk/HSE projects/AIP/KURSACH/Programm2/voicepi/models/vosk/vosk-model-small-ru-0.22"
 
 gpio:
   active_high: true

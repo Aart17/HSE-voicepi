@@ -2,12 +2,12 @@ import time
 from pathlib import Path
 import yaml
 
-from .audio_vad import VadConfig, iter_utterances
-from .commands import load_commands, match_command
-from .gpio_out import GpioController
-from .net import can_reach_google_stt
-from .stt_offline_vosk import VoskStt
-from .stt_online_google import GoogleStt
+from audio_vad import VadConfig, iter_utterances
+from commands import load_commands, match_command
+from gpio_out import GpioController
+from net import can_reach_google_stt
+from stt_offline_vosk import VoskStt
+from stt_online_google import GoogleStt
 
 def load_config(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
@@ -61,6 +61,7 @@ def main():
 
         cmd = match_command(text, commands)
         if cmd:
+            print(cmd)
             gpio.apply(cmd)
         time.sleep(0.05)
 
